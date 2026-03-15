@@ -4,6 +4,8 @@ class Node:
         self.next = next
 def delete(curr):
     head = curr
+    if not head:
+        return None
     while head.next:
         if head.next.val == head.val:
             head.next = head.next.next
