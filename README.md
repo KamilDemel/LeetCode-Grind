@@ -1,11 +1,11 @@
 # +100 Algorithms & Numerical Methods
 
-A collection of 62 algorithmic and numerical scripts implemented from scratch in Python. The core focus is on bare-metal problem solving, computational complexity optimization, and memory management without relying on external libraries.
+A collection of +100 algorithmic and numerical scripts implemented from scratch in Python. The core focus is on bare-metal problem solving, computational complexity optimization, and memory management without relying on external libraries.
 
 ## Key Implementations
 
 ### 1. Exact Math & Numerical Methods
-* **Rational Arithmetic Engine:** Custom tuple-based fraction library with on-the-fly GCD reduction to bypass IEEE-754 floating-point inaccuracies.
+* **Rational Arithmetic Engine:** Custom tuple-based fraction library with on-the-fly GCD reduction.
 * **Cramer's Rule Solver:** Linear equation system solver built strictly on the custom rational engine for 100% precision.
 * **Numerical Analysis:** Root-finding algorithms (Bisection), numerical integration (Riemann sums), and Taylor series approximations.
 
