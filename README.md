@@ -1,4 +1,4 @@
-# 62 Algorithms & Numerical Methods
+# +100 Algorithms & Numerical Methods
 
 A collection of 62 algorithmic and numerical scripts implemented from scratch in Python. The core focus is on bare-metal problem solving, computational complexity optimization, and memory management without relying on external libraries.
 
