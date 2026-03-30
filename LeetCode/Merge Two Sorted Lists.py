@@ -6,7 +6,7 @@ def solution(head1,head2):
     dummy = Node(None)
     tail = dummy
     while head1 and head2:
-        if head1.val >= head2.val:
+        if head1.val <= head2.val:
             tail.next = head1
             tail = tail.next
             head1 = head1.next
