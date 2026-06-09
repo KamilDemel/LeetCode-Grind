@@ -13,9 +13,9 @@ lista_lisci = []
 for _ in range(n):
     lista_lisci.append((int(next(dane)),int(next(dane))))
 liczba_skokow = 0
+lista_lisci.sort()
 start_lisc_idx = 0
 start_energia = lista_lisci[0][1]
-lista_lisci.sort()
 globalne_najlepsze = {0: start_energia}
 aktualna_fala = {start_lisc_idx: start_energia}
 pozycje_lisci = [lisc[0] for lisc in lista_lisci]
