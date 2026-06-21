@@ -30,3 +30,28 @@ def gold(G,V,s,t,r):
             best_wynik = min(distances[t][0],distances[t][1])
     return best_wynik
 
+def gold_v2(G, V, s, t, r):
+    num_V = len(V)
+    distances = [[float("inf")] * 2 for _ in range(num_V)]
+    distances[s][0] = 0
+    pq = [(0, s, 0)]
+    while pq:
+        curr_koszt, curr_v, stan = heapq.heappop(pq)
+        if curr_koszt > distances[curr_v][stan]:
+            continue
+        for sasiad, koszt in G[curr_v]:
+            if stan == 0:
+                nowy_dystans_czysty = curr_koszt + koszt
+                if nowy_dystans_czysty < distances[sasiad][0]:
+                    distances[sasiad][0] = nowy_dystans_czysty
+                    heapq.heappush(pq, (nowy_dystans_czysty, sasiad, 0))
+                koszt_ucieczki = curr_koszt - V[curr_v] + (2 * koszt + r)
+                if koszt_ucieczki < distances[sasiad][1]:
+                    distances[sasiad][1] = koszt_ucieczki
+                    heapq.heappush(pq, (koszt_ucieczki, sasiad, 1))
+            elif stan == 1:
+                nowy_dystans_scigany = curr_koszt + (2 * koszt + r)
+                if nowy_dystans_scigany < distances[sasiad][1]:
+                    distances[sasiad][1] = nowy_dystans_scigany
+                    heapq.heappush(pq, (nowy_dystans_scigany, sasiad, 1))
+    return min(distances[t][0], distances[t][1], distances[t][0] - V[t])
