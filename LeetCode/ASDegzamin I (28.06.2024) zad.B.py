@@ -15,3 +15,21 @@ def kstrong(T, k):
             if dp[i][j] > najlepszy_max:
                 najlepszy_max = dp[i][j]
     return najlepszy_max
+
+def brute_force_k_strong(T, k):
+    lista_tab = []
+    for i in range(len(T)):
+        for j in range(i+1,len(T)+1):
+            new_tab = T[i:j]
+            sorted_T = sorted(new_tab)
+            lista_tab.append(sorted_T)
+    best_suma = float("-inf")
+    for tab in lista_tab:
+        usunieto = 0
+        while usunieto <= k:
+            suma = sum(tab[usunieto:])
+            if suma > best_suma:
+                best_suma = suma
+            usunieto += 1
+    return best_suma
+
