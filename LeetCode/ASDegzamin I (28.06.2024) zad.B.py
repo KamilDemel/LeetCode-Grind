@@ -1,3 +1,4 @@
+import heapq
 def kstrong(T, k):
     n = len(T)
     dp = [[float('-inf')] * (k + 1) for _ in range(n)]
@@ -32,4 +33,28 @@ def brute_force_k_strong(T, k):
                 best_suma = suma
             usunieto += 1
     return best_suma
+def heap_soluton_k_strong(T,k):
+    left = 0
+    max_suma = float("-inf")
+    while left < len(T):
+        akt_suma = 0
+        right = left
+        pq = []
+        while right < len(T):
+            akt_suma += T[right]
+            if T[right] < 0:
+                heapq.heappush(pq,-T[right])
+                akt_suma -= T[right]
+            if len(pq) > k:
+                akt_suma += -(heapq.heappop(pq))
+            if akt_suma > max_suma:
+                max_suma = akt_suma
+            right += 1
+        left += 1
+    return max_suma
+
+
+
+
+
 
